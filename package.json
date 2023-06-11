@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "dependencies": {
+    "lskit": "^1.0.0"
+  },
+  "scripts": {
+    "build": "node ./index.js",
+    "dev": "node --watch ./index.js"
+  }
+}
