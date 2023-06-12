@@ -1,14 +1,5 @@
-## Create object from Entries type
+// Object from entries
 
-```ts
-export type EntriesToObject<T extends [string, any][]> = {
-  [K in T[number][0]]: Extract<T[number], [K, any]>[1]
-}
-```
-
-## Object from entries
-
-```ts
 type Entries = [string, any][]
 type ReadOnlyEntries = readonly (readonly [string, any])[]
 
@@ -34,4 +25,3 @@ function objectFromEntries<E extends Entries | ReadOnlyEntries>(a: E) {
     E extends ReadOnlyEntries ? RemoveReadonly<E> : E
   >
 }
-```
