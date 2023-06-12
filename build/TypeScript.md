@@ -6,6 +6,8 @@ export type EntriesToObject<T extends [string, any][]> = {
 }
 ```
 
+<br />
+
 ## Object from entries
 
 ```ts

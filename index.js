@@ -20,5 +20,5 @@ groupBy(data, (d) => d.ext).map(([ext, body]) => {
     return ['## ' + heading, description, content].filter(Boolean).join('\n\n')
   })
 
-  fs.writeFileSync('./build/' + name + '.md', markdownBody.join('\n\n'))
+  fs.writeFileSync('./build/' + name + '.md', markdownBody.join('\n\n<br />\n\n'))
 })
