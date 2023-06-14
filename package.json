@@ -1,7 +1,6 @@
 {
   "type": "module",
   "scripts": {
-    "build": "node ./index.js",
     "dev": "node --watch ./index.js"
   }
 }

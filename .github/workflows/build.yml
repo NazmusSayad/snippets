@@ -21,11 +21,11 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install dependencies
-        run: npm ci
+      # - name: Install dependencies
+      #   run: npm ci
 
       - name: Build
-        run: npm run build
+        run: node ./index.js
 
       - name: Commit and push changes
         run: |
