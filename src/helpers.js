@@ -42,6 +42,10 @@ export function generateContent({
   ext,
   src,
 }) {
+  if (!heading) {
+    throw new Error(`No heading found at'${src}'`)
+  }
+  
   return [
     `## ${heading} [🔗](/${getRelative(src)})`,
     description,
