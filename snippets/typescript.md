@@ -1,5 +1,13 @@
 ## Create object from Entries type
 
+Hello this is how we do this
+
+Hello this is how we do this
+
+Hello this is how we do this
+
+Hello this is how we do this
+
 ```ts
 export type Entries =
   | [string, any][]
@@ -12,8 +20,7 @@ export type EntriesToObject<T extends Entries> = {
 }
 ```
 
----
-<br />
+<hr />
 
 ## Object from entries
 

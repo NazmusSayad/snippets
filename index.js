@@ -47,7 +47,7 @@ function writeFile({ name, body }) {
       .filter(Boolean)
       .join('\n\n')
   )
-  const markdown = markdownParts.join('\n\n---\n<br />\n\n')
+  const markdown = markdownParts.join('\n\n<hr />\n\n')
   fs.writeFileSync(path.join(outputDir, name + '.md'), markdown)
 }
 
@@ -59,14 +59,14 @@ function writeReadme(langs) {
 
 function extractSections(string) {
   let headingText = ''
-  let descriptionText = ''
+  let descriptionTexts = []
   const codeLines = []
 
   const [main, demo] = string.split('// DEMO:')
 
   main.split('\n').forEach((line) => {
     const match = line.match(
-      /(^\/\/# (?<heading>.*))|(^\/\/## (?<description>.*))/
+      /(^\/\/# (?<heading>.*))|(^\/\/\/ (?<description>.*))/
     )
 
     const heading = match?.groups?.heading
@@ -76,7 +76,7 @@ function extractSections(string) {
 
     const description = match?.groups?.description
     if (description) {
-      return (descriptionText = description)
+      return descriptionTexts.push(description)
     }
 
     codeLines.push(line)
@@ -84,7 +84,7 @@ function extractSections(string) {
 
   return {
     heading: headingText.trim(),
-    description: descriptionText.trim(),
+    description: descriptionTexts.join('\n\n').trim(),
     codes: codeLines.join('\n').trim(),
     demo: demo?.trim(),
   }
