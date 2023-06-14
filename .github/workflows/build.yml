@@ -26,8 +26,8 @@ jobs:
 
       - name: Build
         env:
-          TESTs: "Hello world"
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN: "Hello world"
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: node ./index.js
 
