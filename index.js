@@ -8,6 +8,8 @@ import {
   readme,
 } from './config.js'
 
+console.log(process.env)
+
 const details = languages.map((name) => {
   const langDir = path.join(srcDir, name)
   const files = fs.readdirSync(langDir)
