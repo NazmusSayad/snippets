@@ -29,8 +29,8 @@ jobs:
 
       - name: Commit and push changes
         env:
-          ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           git config user.name "Nazmus Sayad"
           git config user.email "87106526+NazmusSayad@users.noreply.github.com"
