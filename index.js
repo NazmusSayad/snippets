@@ -47,7 +47,7 @@ function writeFile({ name, body }) {
       .filter(Boolean)
       .join('\n\n')
   )
-  const markdown = markdownParts.join('\n\n\n<hr />\n\n')
+  const markdown = markdownParts.join('\n\n---\n<hr />\n\n')
   fs.writeFileSync(path.join(outputDir, name + '.md'), markdown)
 }
 
