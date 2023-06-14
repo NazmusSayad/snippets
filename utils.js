@@ -15,16 +15,37 @@ export function groupBy(array, keySelector) {
 }
 
 export function extractSections(string) {
-  const headingMatch = string.match(/^\/\/ ?(?<heading>.*)/)
-  const heading = headingMatch ? headingMatch.groups.heading.trim() : ''
+  const codeLines = []
+  let headingText = ''
+  let descriptionText = ''
 
-  const codesMatch = string.match(/(\/\/.*\n)?(\/\/.*\n)?(?<codes>(.|\n)*)/)
-  const codes = codesMatch ? codesMatch.groups.codes.trim() : ''
+  const [main, demo] = string.split('//###')
 
-  const descriptionMatch = string.match(/^\/\/.*\n\/\/ ?(?<description>.*)/)
-  const description = descriptionMatch
-    ? descriptionMatch.groups.description.trim()
-    : ''
+  main.split('\n').forEach((line) => {
+    const headingMatch = line.match(/^\/\/# (?<content>.*)/)
+    const heading = headingMatch && headingMatch.groups.content.trim()
+    if (heading !== null) {
+      return (headingText = heading)
+    }
 
-  return { heading, description, codes }
+    const descriptionMatch = line.match(/^\/\/## (?<content>.*)/)
+    const description =
+      descriptionMatch && descriptionMatch.groups.content.trim()
+    if (description !== null) {
+      return (descriptionText = description)
+    }
+
+    codeLines.push(line)
+  })
+
+  return {
+    heading: headingText.trim(),
+    description: descriptionText.trim(),
+    codes: codeLines.join('\n').trim(),
+    demo: demo?.trim(),
+  }
+}
+
+export function addCode(ext, codes) {
+  return '```' + ext + '\n' + codes.trim() + '\n```'
 }

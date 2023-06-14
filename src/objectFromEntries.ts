@@ -1,27 +1,17 @@
-// Object from entries
+//# Object from entries
 
-type Entries = [string, any][]
-type ReadOnlyEntries = readonly (readonly [string, any])[]
+import type { Entries, EntriesToObject } from './entriesToObject'
 
-type ConvertedType<T extends Entries> = {
-  [K in T[number][0]]: Extract<T[number], [K, any]>[1]
+export function objectFromEntries<E extends Entries>(a: E) {
+  return Object.fromEntries(a) as EntriesToObject<E>
 }
 
-type RemoveReadonlyCore<T> = {
-  -readonly [K in keyof T]: T[K]
-}
-type RemoveReadonly<T> = {
-  -readonly [K in keyof T]: RemoveReadonlyCore<T[K]>
-}
-
-// Test:
+//###
 const entries = [
   ['name', 'hello'],
-  ['name1', 'hello'],
+  ['name1', 'hello2'],
 ] as const
 
-function objectFromEntries<E extends Entries | ReadOnlyEntries>(a: E) {
-  return Object.fromEntries(a) as ConvertedType<
-    E extends ReadOnlyEntries ? RemoveReadonly<E> : E
-  >
-}
+const result = objectFromEntries(entries)
+result.name // 'hello'
+result.name1 // 'hello2'
