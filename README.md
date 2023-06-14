@@ -81,7 +81,7 @@ Contributions are highly encouraged! If you have any useful utility functions or
    git checkout -b new-feature
    ```
 
-3. Go to the relevant language directory under the `src` directory. Create a new file and write your code.
+3. Go to the relevant language directory under the `src` directory. Create a new file and write your code. [Learn more](/CONTRIBUTING.md)
 
 4. Commit your changes:
 
