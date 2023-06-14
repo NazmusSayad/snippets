@@ -12,7 +12,7 @@ export type EntriesToObject<T extends Entries> = {
 }
 ```
 
----
+#
 <br />
 
 ## Object from entries
