@@ -1,4 +1,4 @@
-# utils
+# A snippets collection of various languages
 
 A comprehensive collection of utility functions and code snippets for various programming languages.
 
