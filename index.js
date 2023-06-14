@@ -1,6 +1,12 @@
 import * as fs from 'fs'
 import * as path from 'path'
-import { languages, srcDir, outputDir } from './config.js'
+import {
+  languages,
+  srcDir,
+  outputDir,
+  readmeTemplate,
+  readme,
+} from './config.js'
 
 const details = languages.map((name) => {
   const langDir = path.join(srcDir, name)
@@ -15,6 +21,14 @@ const details = languages.map((name) => {
 })
 
 details.forEach((detail) => writeFile(detail))
+writeReadme(
+  languages
+    .map((lang) => {
+      const url = `./${path.relative('.', outputDir)}/${lang}.md`
+      return `- [${lang}](${url})`
+    })
+    .join('\n')
+)
 
 // SRC:
 function addCode(ext, codes) {
@@ -35,6 +49,12 @@ function writeFile({ name, body }) {
   )
   const markdown = markdownParts.join('\n\n<br />\n\n')
   fs.writeFileSync(path.join(outputDir, name + '.md'), markdown)
+}
+
+function writeReadme(langs) {
+  const template = fs.readFileSync(readmeTemplate, 'utf-8')
+  const newStr = template.replace('{LANGUAGES}', langs)
+  fs.writeFileSync(readme, newStr)
 }
 
 function extractSections(string) {

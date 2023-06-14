@@ -10,17 +10,20 @@ Inside this repository, you'll find carefully curated utilities and code snippet
 
 We believe that code reusability is essential in software development, and utils strives to facilitate this by providing high-quality, well-documented, and easily customizable code snippets. Each utility or snippet has been meticulously reviewed and tested to ensure reliability and efficiency, saving you time and effort in implementing common programming tasks.
 
+<br />
+
 ## Languages Covered
 
-- Language 1
-- Language 2
-- Language 3
-- ...
+{LANGUAGES}
+
+<br />
 
 ## Table of Contents
 
 - [Contributing](#contributing)
 - [License](#license)
+
+<br />
 
 ## Contributing
 
@@ -30,17 +33,23 @@ Contributions are highly encouraged! If you have any useful utility functions or
 
 2. Create a new branch to make your modifications:
 
-   `git checkout -b new-feature`
+   ```sh
+   git checkout -b new-feature
+   ```
 
-3. Add your utility function or code snippet within the relevant language directory under the `src` directory.
+3. Go to the relevant language directory under the `src` directory. Create a new file and write your code.
 
 4. Commit your changes:
 
-   `git commit -am 'Add new utility function'`
+   ```sh
+   git commit -am 'Add new utility function'
+   ```
 
 5. Push the branch to your forked repository:
 
-   `git push origin new-feature`
+   ```sh
+   git push origin new-feature
+   ```
 
 6. Open a pull request on the original repository.
 
