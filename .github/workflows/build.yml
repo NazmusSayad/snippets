@@ -27,7 +27,9 @@ jobs:
       - name: Build
         run: node ./index.js
 
-      - name: Commit and push changes
+      - name: Commit and push changes 
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config user.name "Nazmus Sayad"
           git config user.email "87106526+NazmusSayad@users.noreply.github.com"
