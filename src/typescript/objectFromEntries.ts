@@ -6,7 +6,7 @@ export function objectFromEntries<E extends Entries>(a: E) {
   return Object.fromEntries(a) as EntriesToObject<E>
 }
 
-//###
+// DEMO:
 const entries = [
   ['name', 'hello'],
   ['name1', 'hello2'],
