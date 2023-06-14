@@ -43,7 +43,7 @@ export function generateContent({
   src,
 }) {
   if (!heading) {
-    throw new Error(`No heading found at'${src}'`)
+    throw new Error(`No heading found in: '${src}'`)
   }
   
   return [
