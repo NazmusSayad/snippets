@@ -1,24 +1,31 @@
 import './init.js'
+import {
+  srcDir,
+  outputDir,
+  languages,
+  getRelative,
+  supportedExtensions,
+} from './config.js'
 import * as fs from 'fs'
 import * as path from 'path'
-import { writeReadme } from './readme.js'
-import { extractCode, writeFile } from './main.js'
-import { supportedExtensions } from './get-regex.js'
-import { srcDir, outputDir, languages, getRelative } from './config.js'
+import { generateContent, extractCode } from './helpers.js'
+import { writeMainFile, writeReadmeFile } from './utils.js'
 
 // Main
 languages.forEach((name) => {
   const langDir = path.join(srcDir, name)
   const files = fs.readdirSync(langDir)
 
-  const body = files.map((file) => {
+  const contentsData = files.map((file) => {
     const filePath = path.join(langDir, file)
     const fileData = fs.readFileSync(filePath, 'utf-8')
     const ext = path.extname(file).slice(1).toLowerCase()
     return { ...extractCode(fileData, ext), src: filePath }
   })
 
-  writeFile(name, body)
+  const contents = contentsData.map(generateContent)
+
+  writeMainFile(name, contents)
 })
 
 // Readme
@@ -34,5 +41,5 @@ languages.forEach((name) => {
     })
     .join('\n')
 
-  writeReadme(LANGUAGES, SUPPORTED_LANGUAGES)
+  writeReadmeFile(LANGUAGES, SUPPORTED_LANGUAGES)
 })()

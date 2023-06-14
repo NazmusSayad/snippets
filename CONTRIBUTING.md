@@ -4,8 +4,18 @@
 
 You can create a heading like:
 
+_Slash based comment_
+
 ```ts
 //# This is my heading
+
+'...rest of your code'
+```
+
+_Hash based comment_
+
+```py
+## This is my heading
 
 '...rest of your code'
 ```
@@ -14,22 +24,46 @@ You can create a heading like:
 
 You can create a description like:
 
+_Slash based comment_
+
 ```ts
 /// This is my description
+
+'...rest of your code'
+```
+
+_Hash based comment_
+
+```py
+#/ This is my description
 
 '...rest of your code'
 ```
 
 ## Demo
 
-Your can be spllited by two section, if you create a demo comment 
+Your can be spllited by two section, if you create a demo comment
+
+_Slash based comment_
 
 ```ts
+'main code'
+
 // DEMO:
+
+'demo code'
 ```
 
-```ts
-/// This is my description
+_Hash based comment_
 
-'...rest of your code'
+```py
+'main code'
+
+#DEMO:
+
+'demo code'
 ```
+
+# Requests:
+
+- _If something is wrong please create a issue_

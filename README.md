@@ -14,12 +14,22 @@ We believe that code reusability is essential in software development, and utils
 
 ## Languages Covered
 
-- [python](/markdown/python.md)
-- [shell](/markdown/shell.md)
 - [typescript](/markdown/typescript.md)
 
 ## Supported extensions
 
+- .c
+- .cs
+- .cpp
+- .java
+- .scala
+- .rs
+- .go
+- .php
+- .groovy
+- .dart
+- .swift
+- .kt
 - .js
 - .ts
 - .jsx
@@ -33,7 +43,19 @@ We believe that code reusability is essential in software development, and utils
 - .ctsx
 - .mtsx
 - .py
+- .pl
+- .rb
 - .sh
+- .ps1
+- .r
+- .jl
+- .hx
+- .pp
+- .ahk
+- .ex
+- .hack
+- .fs
+- .elm
 
 [_Contact with the repo owner or create an issue for more extensions_](me@sayad.dev)
 
