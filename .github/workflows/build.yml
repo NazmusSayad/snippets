@@ -22,7 +22,7 @@ jobs:
           node-version: '18'
 
       - name: Build
-        run: node ./index.js
+        run: npm run build
 
       - name: Commit and push changes
         run: |

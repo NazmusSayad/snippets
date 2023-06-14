@@ -1,12 +1,4 @@
-## Create object from Entries type
-
-Hello this is how we do this
-
-Hello this is how we do this
-
-Hello this is how we do this
-
-Hello this is how we do this
+## Create object from Entries type [🔗](/snippets/typescript/entriesToObject.ts)
 
 ```ts
 export type Entries =
@@ -20,9 +12,9 @@ export type EntriesToObject<T extends Entries> = {
 }
 ```
 
-<hr />
+<hr /><br />
 
-## Object from entries
+## Object from entries [🔗](/snippets/typescript/objectFromEntries.ts)
 
 ```ts
 import type { Entries, EntriesToObject } from './entriesToObject'

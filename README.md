@@ -14,7 +14,28 @@ We believe that code reusability is essential in software development, and utils
 
 ## Languages Covered
 
-- [typescript](./snippets/typescript.md)
+- [python](/markdown/python.md)
+- [shell](/markdown/shell.md)
+- [typescript](/markdown/typescript.md)
+
+## Supported extensions
+
+- .js
+- .ts
+- .jsx
+- .tsx
+- .mjs
+- .cjs
+- .cjsx
+- .mjsx
+- .cts
+- .mts
+- .ctsx
+- .mtsx
+- .py
+- .sh
+
+[_Contact with the repo owner or create an issue for more extensions_](me@sayad.dev)
 
 <br />
 
