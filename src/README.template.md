@@ -16,7 +16,7 @@ We believe that code reusability is essential in software development, and utils
 
 {SUPPORTED_LANGUAGES}
 
-[_Contact with the repo owner or create an issue for more extensions_](me@sayad.dev)
+[_Contact with the repo owner or create an issue for more extensions_](mailto:me@sayad.dev)
 
 <br />
 
