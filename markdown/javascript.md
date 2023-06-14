@@ -59,11 +59,9 @@ export const randomNumber = (max = 1, min = 0) => {
 
 <hr /><br />
 
-##  [🔗](/snippets/javascript/selectElement.js)
+## Physically select a text/image of a element [🔗](/snippets/javascript/selectElement.js)
 
 ```js
-// Physically select a text/image of a element
-
 const selectElement = (element) => {
   if (document.body.createTextRange) {
     const range = document.body.createTextRange()
