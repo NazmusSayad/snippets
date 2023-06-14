@@ -26,8 +26,7 @@ jobs:
 
       - name: Build
         env:
-          # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          ACCESS_TOKEN: "ghp_asdfasdfasdfasdf234234234as"
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: node ./index.js
 
