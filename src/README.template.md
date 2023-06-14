@@ -1,8 +1,4 @@
-# A snippets collection of various languages
-
-A comprehensive collection of utility functions and code snippets for various programming languages.
-
-## Description
+# A comprehensive collection of utility functions and code snippets for various programming languages.
 
 utils is a robust repository that aims to provide developers with a wide range of utility functions and code snippets that can be used across different programming languages. Whether you're a beginner or an experienced developer, this repository serves as a valuable resource for enhancing your coding workflow and accelerating your development process.
 
