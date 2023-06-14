@@ -14,6 +14,7 @@ We believe that code reusability is essential in software development, and utils
 
 ## Languages Covered
 
+- [javascript](/markdown/javascript.md)
 - [typescript](/markdown/typescript.md)
 
 ## Supported extensions
