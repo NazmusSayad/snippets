@@ -12,7 +12,8 @@ export type EntriesToObject<T extends Entries> = {
 }
 ```
 
-<br />
+
+<hr />
 
 ## Object from entries
 
@@ -22,8 +23,11 @@ import type { Entries, EntriesToObject } from './entriesToObject'
 export function objectFromEntries<E extends Entries>(a: E) {
   return Object.fromEntries(a) as EntriesToObject<E>
 }
+```
 
-//###
+***DEMO:***
+
+```ts
 const entries = [
   ['name', 'hello'],
   ['name1', 'hello2'],

@@ -8,8 +8,6 @@ import {
   readme,
 } from './config.js'
 
-console.log(process.env)
-
 const details = languages.map((name) => {
   const langDir = path.join(srcDir, name)
   const files = fs.readdirSync(langDir)
@@ -49,7 +47,7 @@ function writeFile({ name, body }) {
       .filter(Boolean)
       .join('\n\n')
   )
-  const markdown = markdownParts.join('\n\n<br />\n\n')
+  const markdown = markdownParts.join('\n\n\n<hr />\n\n')
   fs.writeFileSync(path.join(outputDir, name + '.md'), markdown)
 }
 
