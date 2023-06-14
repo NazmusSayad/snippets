@@ -1,4 +1,4 @@
-// Physically select a text/image of a element
+//# Physically select a text/image of a element
 
 const selectElement = (element) => {
   if (document.body.createTextRange) {
