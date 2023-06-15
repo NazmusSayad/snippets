@@ -34,6 +34,17 @@ export type OmitByValue<T, ValueType> = Pick<T, {
 
 <hr /><br />
 
+## RequireAtLeastOne [🔗](/snippets/typescript/RequireAtLeastOne.ts)
+
+```ts
+type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Omit<T, Keys> &
+  {
+    [K in Keys]-?: Required<Pick<T, K>> & Partial<Omit<T, K>>;
+  }[Keys];
+```
+
+<hr /><br />
+
 ## Object from entries [🔗](/snippets/typescript/objectFromEntries.ts)
 
 ```ts
