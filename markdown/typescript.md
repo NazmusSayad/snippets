@@ -1,4 +1,14 @@
-## Create object from Entries type [🔗](/snippets/typescript/entriesToObject.ts)
+## DeepPartial [🔗](/snippets/typescript/DeepPartial.ts)
+
+```ts
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
+```
+
+<hr /><br />
+
+## Create object from Entries type [🔗](/snippets/typescript/EntriesToObject.ts)
 
 ```ts
 export type Entries =
