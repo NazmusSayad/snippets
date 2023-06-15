@@ -1,17 +1,25 @@
+import * as path from 'path'
 import getRegex, { getRelative } from './config.js'
-import { generateMdCode, isValidText } from './utils.js'
+import { Code, Demo, SuperString } from './UtilClasses.js'
+import { isValidText } from './utils.js'
 
 export function extractCode(code, ext) {
   let headingText = ''
-  const descriptionTexts = []
-  const codeLines = []
+  const contents = []
+  const currentCodeLines = []
+
+  function pushCurrentCodeLines() {
+    if (currentCodeLines.length) {
+      contents.push(new Code(currentCodeLines))
+      currentCodeLines.length = 0
+    }
+  }
 
   const [spliterRegex, metaRegex] = getRegex(ext)
-  const [main, demo] = code.split(spliterRegex)
+  const [main, demoText] = code.split(spliterRegex)
 
   main.split('\n').forEach((line) => {
     const match = line.match(metaRegex)
-
     const { heading, description } = match?.groups ?? {}
 
     if (isValidText(heading)) {
@@ -19,39 +27,31 @@ export function extractCode(code, ext) {
     }
 
     if (isValidText(description)) {
-      return descriptionTexts.push(description)
+      pushCurrentCodeLines()
+      return contents.push(new SuperString(description))
     }
 
-    codeLines.push(line)
+    currentCodeLines.push(line)
   })
 
+  // Do not forget about this
+  // If there is any code left then this will do the work
+  pushCurrentCodeLines()
+
   return {
-    ext,
     heading: headingText.trim(),
-    description: descriptionTexts.join('\n\n').trim(),
-    codes: codeLines.join('\n').trim(),
-    demo: demo?.trim(),
+    demo: new Demo(demoText),
+    contents,
   }
 }
 
-export function generateContent({
-  heading,
-  description,
-  codes,
-  demo,
-  ext,
-  src,
-}) {
-  if (!heading) {
-    throw new Error(`No heading found in: '${src}'`)
-  }
-  
+export function generateContent({ heading, contents, demo, ext, src }) {
   return [
-    `## ${heading} [🔗](/${getRelative(src)})`,
-    description,
-    generateMdCode(ext, codes),
-    demo && `***DEMO:***`,
-    demo && generateMdCode(ext, demo),
+    `## ${heading || path.parse(src).name} [🔗](/${getRelative(src)})`,
+
+    ...contents.map((content) => content.getString(ext)),
+
+    demo.getString(ext),
   ]
     .filter(Boolean)
     .join('\n\n')

@@ -20,7 +20,7 @@ languages.forEach((name) => {
     const filePath = path.join(langDir, file)
     const fileData = fs.readFileSync(filePath, 'utf-8')
     const ext = path.extname(file).slice(1).toLowerCase()
-    return { ...extractCode(fileData, ext), src: filePath }
+    return { ...extractCode(fileData, ext), ext, src: filePath }
   })
 
   const contents = contentsData.map(generateContent)

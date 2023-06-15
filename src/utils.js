@@ -1,6 +1,11 @@
+import {
+  outputDir,
+  readmePath,
+  readmeTemplate,
+  dangerousTextRegex,
+} from './config.js'
 import * as fs from 'fs'
 import * as path from 'path'
-import { outputDir, readmePath, readmeTemplate } from './config.js'
 
 export function writeMainFile(name, contents) {
   const markdown = contents.join('\n\n<hr /><br />\n\n')
@@ -9,7 +14,7 @@ export function writeMainFile(name, contents) {
 
 export function isValidText(string) {
   if (!string) return false
-  return !/^(#|```)/gm.test(string.trim())
+  return !dangerousTextRegex.test(string.trim())
 }
 
 export function generateMdCode(ext, codes) {

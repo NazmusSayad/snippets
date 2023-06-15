@@ -19,6 +19,9 @@ export const hashRegex = /(^## (?<heading>.*))|(^#\/ (?<description>.*))/
 export const slashDemoStr = /^\/\/ DEMO:\n/m
 export const slashRegex = /(^\/\/# (?<heading>.*))|(^\/\/\/ (?<description>.*))/
 
+export const dangerousTextRegex =
+  /^(#|```|---|<[a-zA-Z0-9-_]{0,} {0,}\/?>|<\/[a-zA-Z0-9-_]{0,} {0,}>)/gim
+
 export const hashCommentLangs = new Set([
   'py',
   'pl',
