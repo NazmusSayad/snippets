@@ -24,6 +24,16 @@ export type EntriesToObject<T extends Entries> = {
 
 <hr /><br />
 
+## OmitByValue [🔗](/snippets/typescript/OmitByValue.ts)
+
+```ts
+export type OmitByValue<T, ValueType> = Pick<T, {
+  [K in keyof T]: T[K] extends ValueType ? never : K;
+}[keyof T]>;
+```
+
+<hr /><br />
+
 ## Object from entries [🔗](/snippets/typescript/objectFromEntries.ts)
 
 ```ts
