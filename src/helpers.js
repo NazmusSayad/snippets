@@ -1,6 +1,6 @@
 import * as path from 'path'
 import getRegex, { getRelative } from './config.js'
-import { Code, Demo, SuperString } from './UtilClasses.js'
+import { Code, Demo, SuperString } from './SuperString.js'
 import { isValidText } from './utils.js'
 
 export function extractCode(code, ext) {
