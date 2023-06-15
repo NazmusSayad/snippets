@@ -17,10 +17,6 @@ export function isValidText(string) {
   return !dangerousTextRegex.test(string.trim())
 }
 
-export function generateMdCode(ext, codes) {
-  return '```' + ext + '\n' + codes.trim() + '\n```'
-}
-
 export function writeReadmeFile(LANGUAGES, SUPPORTED_LANGUAGES) {
   fs.writeFileSync(
     readmePath,

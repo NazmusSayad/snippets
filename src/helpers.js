@@ -54,5 +54,5 @@ export function generateContent({ heading, contents, demo, ext, src }) {
     demo.getString(ext),
   ]
     .filter(Boolean)
-    .join('\n\n')
+    .join('\n')
 }
