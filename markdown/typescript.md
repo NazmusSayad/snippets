@@ -41,6 +41,16 @@ export type EntriesToObject<T extends Entries> = {
 
 <hr /><br />
 
+## Modify [🔗](/snippets/typescript/Modify.ts)
+```ts
+export type Modify<
+  Type extends object,
+  PartialType extends Partial<Type>
+> = Omit<Type, keyof PartialType> & PartialType;
+```
+
+<hr /><br />
+
 ## OmitByValue [🔗](/snippets/typescript/OmitByValue.ts)
 ```ts
 export type OmitByValue<T, ValueType> = Pick<
@@ -49,6 +59,15 @@ export type OmitByValue<T, ValueType> = Pick<
     [K in keyof T]: T[K] extends ValueType ? never : K
   }[keyof T]
 >
+```
+
+<hr /><br />
+
+## Prettify [🔗](/snippets/typescript/Prettify.ts)
+```ts
+export type Prettify<T extends object> = {
+  [Key in keyof T]: T[Key];
+} & {};
 ```
 
 <hr /><br />
@@ -62,6 +81,23 @@ export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Omit<
   {
     [K in Keys]-?: Required<Pick<T, K>> & Partial<Omit<T, K>>
   }[Keys]
+```
+
+<hr /><br />
+
+## RequiredAndNotNull [🔗](/snippets/typescript/RequiredAndNotNull.ts)
+```ts
+import { Prettify } from "./Prettify";
+
+export type RequiredAndNotNull<T extends object, R = false> = Prettify<
+  Required<{
+    [key in keyof T]: R extends false
+      ? Exclude<T[key], null | undefined>
+      : T[key] extends object
+      ? RequiredAndNotNull<T[key], true>
+      : Exclude<T[key], null | undefined>;
+  }>
+>;
 ```
 
 <hr /><br />
