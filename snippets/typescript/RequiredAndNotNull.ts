@@ -1,6 +1,6 @@
-import Prettify from "./Prettify";
+import { Prettify } from "./Prettify";
 
-type RequiredAndNotNull<T extends object, R = false> = Prettify<
+export type RequiredAndNotNull<T extends object, R = false> = Prettify<
   Required<{
     [key in keyof T]: R extends false
       ? Exclude<T[key], null | undefined>
@@ -9,5 +9,3 @@ type RequiredAndNotNull<T extends object, R = false> = Prettify<
       : Exclude<T[key], null | undefined>;
   }>
 >;
-
-export default RequiredAndNotNull;

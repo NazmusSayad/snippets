@@ -1,5 +1,3 @@
-type Prettify<T extends object> = {
+export type Prettify<T extends object> = {
   [Key in keyof T]: T[Key];
 } & {};
-
-export default Prettify;
