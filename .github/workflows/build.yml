@@ -41,5 +41,5 @@ jobs:
       - name: Pacakge and Publish
         run: |
           cd ./src/vscode-ext
-          vsce package
-          vsce publish -p ${{ secrets.AZURE_TOKEN }}
+          npx vsce package
+          npx vsce publish -p ${{ secrets.AZURE_TOKEN }}
