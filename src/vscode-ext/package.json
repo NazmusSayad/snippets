@@ -1,8 +1,9 @@
 {
-  "name": "snippets",
+  "name": "util-snippets",
   "displayName": "Utility Code Snippets",
+  "publisher": "NazmusSayad",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.50.0"
   },
@@ -12,9 +13,22 @@
   "contributes": {
     "snippets": [
       {
-        "language": "php, js, ts",
-        "path": "./snippets/snippets.code-snippets"
+        "language": "javascript",
+        "path": "./snippets/javascript.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.code-snippets"
       }
     ]
-  }
+  },
+  "author": "https://github.com/NazmusSayad",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NazmusSayad/snippets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NazmusSayad/snippets/issues"
+  },
+  "homepage": "https://github.com/NazmusSayad/snippets#readme"
 }

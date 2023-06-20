@@ -2,15 +2,20 @@ import * as fs from 'fs'
 import * as path from 'path'
 
 export const baseDir = path.resolve('.')
-export const srcDir = path.join(baseDir, './snippets')
+export const snippetsDir = path.join(baseDir, './snippets')
 export const outputDir = path.join(baseDir, './markdown')
 export const readmePath = path.join(baseDir, './README.md')
 export const readmeTemplatePath = path.join(baseDir, './src/README.template.md')
+
+export const extDir = path.join(baseDir, './src/vscode-ext')
+export const extSnippetsDir = path.join(baseDir, './src/vscode-ext/snippets')
+export const extPkgJSON = path.join(baseDir, './src/vscode-ext/package.json')
+
 export function getRelative(target) {
   return path.relative(baseDir, target)
 }
 
-export const languages = fs.readdirSync(srcDir)
+export const languages = fs.readdirSync(snippetsDir)
 export const readmeTemplate = fs.readFileSync(readmeTemplatePath, 'utf-8')
 
 export const hashDemoStr = /^# DEMO:\n/m

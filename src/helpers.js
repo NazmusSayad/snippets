@@ -1,7 +1,28 @@
+import * as fs from 'fs'
 import * as path from 'path'
-import getRegex, { getRelative } from './config.js'
-import { Code, Demo, SuperString } from './SuperString.js'
 import { isValidText } from './utils.js'
+import { Code, Demo, SuperString } from './SuperString.js'
+import getRegex, { snippetsDir, languages, getRelative } from './config.js'
+
+export function getContentData() {
+  return languages.map((name) => {
+    const langDir = path.join(snippetsDir, name)
+    const files = fs.readdirSync(langDir)
+
+    const filesData = files.map((file) => {
+      const filePath = path.join(langDir, file)
+      const fileData = fs.readFileSync(filePath, 'utf-8')
+      const ext = path.extname(file).slice(1).toLowerCase()
+      return {
+        ext,
+        src: filePath,
+        ...extractCode(fileData, ext),
+      }
+    })
+
+    return { name, files: filesData }
+  })
+}
 
 export function extractCode(code, ext) {
   let headingText = ''

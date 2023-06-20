@@ -21,7 +21,10 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Build
+      - name: Install packages
+        run: npm install
+
+      - name: Build markdown
         run: npm run build
 
       - name: Commit and push changes
@@ -31,3 +34,12 @@ jobs:
           git add .
           git commit -m "Auto-build by GitHub Actions"
           git push
+
+      - name: Build vscode extension
+        run: npm run build:ext
+
+      - name: Pacakge and Publish
+        run: |
+          cd ./src/vscode-ext
+          vsce package
+          vsce publish -p ${{ secrets.AZURE_TOKEN }}
