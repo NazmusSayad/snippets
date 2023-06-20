@@ -4,6 +4,10 @@ import { getContentData } from './helpers.js'
 import { Code } from './SuperString.js'
 import { extDir, extPkgJSON, extSnippetsDir } from './config.js'
 
+if (fs.existsSync(extSnippetsDir))
+  fs.rmSync(extSnippetsDir, { force: true, recursive: true })
+fs.mkdirSync(extSnippetsDir, { recursive: true })
+
 const meta = getContentData().map(({ name, files }) => {
   const languageScope = name
   const snippets = {}
