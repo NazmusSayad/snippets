@@ -3,7 +3,7 @@
   "displayName": "Utility Code Snippets",
   "publisher": "NazmusSayad",
   "description": "",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.50.0"
   },
