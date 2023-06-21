@@ -1,5 +1,4 @@
 ## DeepMerge
-src: [DeepMerge.ts](/snippets/typescript/DeepMerge.ts)
 ```ts
 export type DeepMerge<T, U> = T extends object
   ? U extends object
@@ -15,21 +14,21 @@ export type DeepMerge<T, U> = T extends object
     : T
   : U
 ```
+Source: [DeepMerge.ts](/snippets/typescript/DeepMerge.ts)
 
 <hr /><br />
 
 ## DeepPartial
-src: [DeepPartial.ts](/snippets/typescript/DeepPartial.ts)
 ```ts
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P]
 }
 ```
+Source: [DeepPartial.ts](/snippets/typescript/DeepPartial.ts)
 
 <hr /><br />
 
 ## Create object from Entries type
-src: [EntriesToObject.ts](/snippets/typescript/EntriesToObject.ts)
 ```ts
 export type Entries =
   | [string, any][]
@@ -41,11 +40,11 @@ export type EntriesToObject<T extends Entries> = {
   [K in T[number] as K[0]]: K[1]
 }
 ```
+Source: [EntriesToObject.ts](/snippets/typescript/EntriesToObject.ts)
 
 <hr /><br />
 
 ## MakeOptional
-src: [MakeOptional.ts](/snippets/typescript/MakeOptional.ts)
 ```ts
 type HasUndefined<T> = (T extends undefined ? true : false) extends false
   ? false
@@ -67,22 +66,22 @@ export type MakeOptional<TObject> = Prettify<
   }
 >
 ```
+Source: [MakeOptional.ts](/snippets/typescript/MakeOptional.ts)
 
 <hr /><br />
 
 ## Modify
-src: [Modify.ts](/snippets/typescript/Modify.ts)
 ```ts
 export type Modify<
   Type extends object,
   PartialType extends Partial<Type>
 > = Omit<Type, keyof PartialType> & PartialType;
 ```
+Source: [Modify.ts](/snippets/typescript/Modify.ts)
 
 <hr /><br />
 
 ## OmitByValue
-src: [OmitByValue.ts](/snippets/typescript/OmitByValue.ts)
 ```ts
 export type OmitByValue<T, ValueType> = Pick<
   T,
@@ -91,21 +90,21 @@ export type OmitByValue<T, ValueType> = Pick<
   }[keyof T]
 >
 ```
+Source: [OmitByValue.ts](/snippets/typescript/OmitByValue.ts)
 
 <hr /><br />
 
 ## Prettify
-src: [Prettify.ts](/snippets/typescript/Prettify.ts)
 ```ts
 export type Prettify<T extends object> = {
   [Key in keyof T]: T[Key];
 } & {};
 ```
+Source: [Prettify.ts](/snippets/typescript/Prettify.ts)
 
 <hr /><br />
 
 ## RequireAtLeastOne
-src: [RequireAtLeastOne.ts](/snippets/typescript/RequireAtLeastOne.ts)
 ```ts
 export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Omit<
   T,
@@ -115,11 +114,11 @@ export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Omit<
     [K in Keys]-?: Required<Pick<T, K>> & Partial<Omit<T, K>>
   }[Keys]
 ```
+Source: [RequireAtLeastOne.ts](/snippets/typescript/RequireAtLeastOne.ts)
 
 <hr /><br />
 
 ## RequiredAndNotNull
-src: [RequiredAndNotNull.ts](/snippets/typescript/RequiredAndNotNull.ts)
 ```ts
 import { Prettify } from "./Prettify";
 
@@ -133,11 +132,11 @@ export type RequiredAndNotNull<T extends object, R = false> = Prettify<
   }>
 >;
 ```
+Source: [RequiredAndNotNull.ts](/snippets/typescript/RequiredAndNotNull.ts)
 
 <hr /><br />
 
 ## Object from entries
-src: [objectFromEntries.ts](/snippets/typescript/objectFromEntries.ts)
 ```ts
 import type { Entries, EntriesToObject } from './EntriesToObject'
 
@@ -157,3 +156,4 @@ const result = objectFromEntries(entries)
 result.name // 'hello'
 result.name1 // 'hello2'
 ```
+Source: [objectFromEntries.ts](/snippets/typescript/objectFromEntries.ts)

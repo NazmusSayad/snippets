@@ -1,5 +1,4 @@
 ## You can create DOM element from string
-src: [createElementFromStr.js](/snippets/javascript/createElementFromStr.js)
 ```js
 export const createElementFromStr1 = (body = '<div></div>') => {
   return new DOMParser().parseFromString(body, 'text/html').body
@@ -18,11 +17,11 @@ export const createElementFromStr3 = (body) => {
   return element.content.firstElementChild
 }
 ```
+Source: [createElementFromStr.js](/snippets/javascript/createElementFromStr.js)
 
 <hr /><br />
 
 ## Check if an element is visible
-src: [isElementVisible.js](/snippets/javascript/isElementVisible.js)
 ```js
 const isVisible1 = (element) => {
   const position = element.getBoundingClientRect()
@@ -46,21 +45,21 @@ const isVisible2 = (element) => {
   return 0
 }
 ```
+Source: [isElementVisible.js](/snippets/javascript/isElementVisible.js)
 
 <hr /><br />
 
 ## Get a random number
-src: [randomNumber.js](/snippets/javascript/randomNumber.js)
 ```js
 export const randomNumber = (max = 1, min = 0) => {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 ```
+Source: [randomNumber.js](/snippets/javascript/randomNumber.js)
 
 <hr /><br />
 
 ## Physically select a text/image of a element
-src: [selectElement.js](/snippets/javascript/selectElement.js)
 ```js
 const selectElement = (element) => {
   if (document.body.createTextRange) {
@@ -77,11 +76,11 @@ const selectElement = (element) => {
   return element.textContent.trim()
 }
 ```
+Source: [selectElement.js](/snippets/javascript/selectElement.js)
 
 <hr /><br />
 
 ## Sort a list of node
-src: [sortElements.js](/snippets/javascript/sortElements.js)
 ```js
 const sortElements = (selectors) => {
   let i, switching, b, shouldSwitch
@@ -106,11 +105,11 @@ const sortElements = (selectors) => {
   }
 }
 ```
+Source: [sortElements.js](/snippets/javascript/sortElements.js)
 
 <hr /><br />
 
 ## Wait for sometime...
-src: [wait.js](/snippets/javascript/wait.js)
 ```js
 const wait = (duration) => {
   return new Promise((resolve) => {
@@ -118,3 +117,4 @@ const wait = (duration) => {
   })
 }
 ```
+Source: [wait.js](/snippets/javascript/wait.js)
