@@ -1,4 +1,5 @@
-## You can create DOM element from string [createElementFromStr.js](/snippets/javascript/createElementFromStr.js)
+## You can create DOM element from string
+src: [createElementFromStr.js](/snippets/javascript/createElementFromStr.js)
 ```js
 export const createElementFromStr1 = (body = '<div></div>') => {
   return new DOMParser().parseFromString(body, 'text/html').body
@@ -20,7 +21,8 @@ export const createElementFromStr3 = (body) => {
 
 <hr /><br />
 
-## Check if an element is visible [isElementVisible.js](/snippets/javascript/isElementVisible.js)
+## Check if an element is visible
+src: [isElementVisible.js](/snippets/javascript/isElementVisible.js)
 ```js
 const isVisible1 = (element) => {
   const position = element.getBoundingClientRect()
@@ -47,7 +49,8 @@ const isVisible2 = (element) => {
 
 <hr /><br />
 
-## Get a random number [randomNumber.js](/snippets/javascript/randomNumber.js)
+## Get a random number
+src: [randomNumber.js](/snippets/javascript/randomNumber.js)
 ```js
 export const randomNumber = (max = 1, min = 0) => {
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -56,7 +59,8 @@ export const randomNumber = (max = 1, min = 0) => {
 
 <hr /><br />
 
-## Physically select a text/image of a element [selectElement.js](/snippets/javascript/selectElement.js)
+## Physically select a text/image of a element
+src: [selectElement.js](/snippets/javascript/selectElement.js)
 ```js
 const selectElement = (element) => {
   if (document.body.createTextRange) {
@@ -76,7 +80,8 @@ const selectElement = (element) => {
 
 <hr /><br />
 
-## Sort a list of node [sortElements.js](/snippets/javascript/sortElements.js)
+## Sort a list of node
+src: [sortElements.js](/snippets/javascript/sortElements.js)
 ```js
 const sortElements = (selectors) => {
   let i, switching, b, shouldSwitch
@@ -104,7 +109,8 @@ const sortElements = (selectors) => {
 
 <hr /><br />
 
-## Wait for sometime... [wait.js](/snippets/javascript/wait.js)
+## Wait for sometime...
+src: [wait.js](/snippets/javascript/wait.js)
 ```js
 const wait = (duration) => {
   return new Promise((resolve) => {

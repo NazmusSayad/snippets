@@ -1,4 +1,5 @@
-## DeepMerge [DeepMerge.ts](/snippets/typescript/DeepMerge.ts)
+## DeepMerge
+src: [DeepMerge.ts](/snippets/typescript/DeepMerge.ts)
 ```ts
 export type DeepMerge<T, U> = T extends object
   ? U extends object
@@ -17,7 +18,8 @@ export type DeepMerge<T, U> = T extends object
 
 <hr /><br />
 
-## DeepPartial [DeepPartial.ts](/snippets/typescript/DeepPartial.ts)
+## DeepPartial
+src: [DeepPartial.ts](/snippets/typescript/DeepPartial.ts)
 ```ts
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P]
@@ -26,7 +28,8 @@ export type DeepPartial<T> = {
 
 <hr /><br />
 
-## Create object from Entries type [EntriesToObject.ts](/snippets/typescript/EntriesToObject.ts)
+## Create object from Entries type
+src: [EntriesToObject.ts](/snippets/typescript/EntriesToObject.ts)
 ```ts
 export type Entries =
   | [string, any][]
@@ -41,7 +44,8 @@ export type EntriesToObject<T extends Entries> = {
 
 <hr /><br />
 
-## MakeOptional [MakeOptional.ts](/snippets/typescript/MakeOptional.ts)
+## MakeOptional
+src: [MakeOptional.ts](/snippets/typescript/MakeOptional.ts)
 ```ts
 type HasUndefined<T> = (T extends undefined ? true : false) extends false
   ? false
@@ -66,7 +70,8 @@ export type MakeOptional<TObject> = Prettify<
 
 <hr /><br />
 
-## Modify [Modify.ts](/snippets/typescript/Modify.ts)
+## Modify
+src: [Modify.ts](/snippets/typescript/Modify.ts)
 ```ts
 export type Modify<
   Type extends object,
@@ -76,7 +81,8 @@ export type Modify<
 
 <hr /><br />
 
-## OmitByValue [OmitByValue.ts](/snippets/typescript/OmitByValue.ts)
+## OmitByValue
+src: [OmitByValue.ts](/snippets/typescript/OmitByValue.ts)
 ```ts
 export type OmitByValue<T, ValueType> = Pick<
   T,
@@ -88,7 +94,8 @@ export type OmitByValue<T, ValueType> = Pick<
 
 <hr /><br />
 
-## Prettify [Prettify.ts](/snippets/typescript/Prettify.ts)
+## Prettify
+src: [Prettify.ts](/snippets/typescript/Prettify.ts)
 ```ts
 export type Prettify<T extends object> = {
   [Key in keyof T]: T[Key];
@@ -97,7 +104,8 @@ export type Prettify<T extends object> = {
 
 <hr /><br />
 
-## RequireAtLeastOne [RequireAtLeastOne.ts](/snippets/typescript/RequireAtLeastOne.ts)
+## RequireAtLeastOne
+src: [RequireAtLeastOne.ts](/snippets/typescript/RequireAtLeastOne.ts)
 ```ts
 export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Omit<
   T,
@@ -110,7 +118,8 @@ export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Omit<
 
 <hr /><br />
 
-## RequiredAndNotNull [RequiredAndNotNull.ts](/snippets/typescript/RequiredAndNotNull.ts)
+## RequiredAndNotNull
+src: [RequiredAndNotNull.ts](/snippets/typescript/RequiredAndNotNull.ts)
 ```ts
 import { Prettify } from "./Prettify";
 
@@ -127,7 +136,8 @@ export type RequiredAndNotNull<T extends object, R = false> = Prettify<
 
 <hr /><br />
 
-## Object from entries [objectFromEntries.ts](/snippets/typescript/objectFromEntries.ts)
+## Object from entries
+src: [objectFromEntries.ts](/snippets/typescript/objectFromEntries.ts)
 ```ts
 import type { Entries, EntriesToObject } from './EntriesToObject'
 
