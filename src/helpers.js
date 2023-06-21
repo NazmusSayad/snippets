@@ -71,9 +71,9 @@ export function generateContent({ heading, contents, demo, ext, src }) {
   
   return [
     `## ${heading || parsedPath.name}`,
-    `src: [${parsedPath.base}](/${getRelative(src)})`,
     ...contents.map((content) => content.getString(ext)),
     demo.getString(ext),
+    `Source: [${parsedPath.base}](/${getRelative(src)})`,
   ]
     .filter(Boolean)
     .join('\n')
