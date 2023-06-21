@@ -68,7 +68,7 @@ export function extractCode(code, ext) {
 
 export function generateContent({ heading, contents, demo, ext, src }) {
   return [
-    `## ${heading || path.parse(src).name} [🔗](/${getRelative(src)})`,
+    `## ${heading || path.parse(src).name} [${path.parse(src).base}](/${getRelative(src)})`,
 
     ...contents.map((content) => content.getString(ext)),
 
