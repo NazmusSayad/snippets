@@ -67,11 +67,12 @@ export function extractCode(code, ext) {
 }
 
 export function generateContent({ heading, contents, demo, ext, src }) {
+  const parsedPath = path.parse(src)
+  
   return [
-    `## ${heading || path.parse(src).name} [${path.parse(src).base}](/${getRelative(src)})`,
-
+    `## ${heading || parsedPath.name}`,
+    `src: [${parsedPath.base}](/${getRelative(src)})`,
     ...contents.map((content) => content.getString(ext)),
-
     demo.getString(ext),
   ]
     .filter(Boolean)
