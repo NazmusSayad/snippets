@@ -1,5 +1,8 @@
-## You can create DOM element from string
-```js
+### createElementFromStr
+
+```javascript
+// You can create DOM element from string
+
 export const createElementFromStr1 = (body = '<div></div>') => {
   return new DOMParser().parseFromString(body, 'text/html').body
     .firstElementChild
@@ -17,12 +20,16 @@ export const createElementFromStr3 = (body) => {
   return element.content.firstElementChild
 }
 ```
+
 Source: [createElementFromStr.js](/snippets/javascript/createElementFromStr.js)
 
-<hr /><br />
+---
 
-## Check if an element is visible
-```js
+### isElementVisible
+
+```javascript
+// Check if an element is visible
+
 const isVisible1 = (element) => {
   const position = element.getBoundingClientRect()
   if (position.top >= 0 && position.bottom <= innerHeight) return true
@@ -45,22 +52,30 @@ const isVisible2 = (element) => {
   return 0
 }
 ```
+
 Source: [isElementVisible.js](/snippets/javascript/isElementVisible.js)
 
-<hr /><br />
+---
 
-## Get a random number
-```js
+### randomNumber
+
+```javascript
+// Get a random number
+
 export const randomNumber = (max = 1, min = 0) => {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 ```
+
 Source: [randomNumber.js](/snippets/javascript/randomNumber.js)
 
-<hr /><br />
+---
 
-## Physically select a text/image of a element
-```js
+### selectElement
+
+```javascript
+// Physically select a text/image of a element
+
 const selectElement = (element) => {
   if (document.body.createTextRange) {
     const range = document.body.createTextRange()
@@ -76,12 +91,16 @@ const selectElement = (element) => {
   return element.textContent.trim()
 }
 ```
+
 Source: [selectElement.js](/snippets/javascript/selectElement.js)
 
-<hr /><br />
+---
 
-## Sort a list of node
-```js
+### sortElements
+
+```javascript
+// Sort a list of node
+
 const sortElements = (selectors) => {
   let i, switching, b, shouldSwitch
   switching = true
@@ -105,16 +124,21 @@ const sortElements = (selectors) => {
   }
 }
 ```
+
 Source: [sortElements.js](/snippets/javascript/sortElements.js)
 
-<hr /><br />
+---
 
-## Wait for sometime...
-```js
+### wait
+
+```javascript
+// Wait for sometime...
+
 const wait = (duration) => {
   return new Promise((resolve) => {
     setTimeout(resolve, duration)
   })
 }
 ```
+
 Source: [wait.js](/snippets/javascript/wait.js)

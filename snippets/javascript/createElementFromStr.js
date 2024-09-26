@@ -1,4 +1,4 @@
-//# You can create DOM element from string
+// You can create DOM element from string
 
 export const createElementFromStr1 = (body = '<div></div>') => {
   return new DOMParser().parseFromString(body, 'text/html').body

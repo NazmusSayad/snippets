@@ -1,4 +1,4 @@
-//# Create object from Entries type
+// Create object from Entries type
 
 export type Entries =
   | [string, any][]

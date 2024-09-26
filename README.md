@@ -8,56 +8,6 @@ We believe that code reusability is essential in software development, and utils
 
 <br />
 
-## Languages Covered
-
-- [javascript](/markdown/javascript.md)
-- [typescript](/markdown/typescript.md)
-
-## Supported extensions
-
-- .c
-- .cs
-- .cpp
-- .java
-- .scala
-- .rs
-- .go
-- .php
-- .groovy
-- .dart
-- .swift
-- .kt
-- .js
-- .ts
-- .jsx
-- .tsx
-- .mjs
-- .cjs
-- .cjsx
-- .mjsx
-- .cts
-- .mts
-- .ctsx
-- .mtsx
-- .py
-- .pl
-- .rb
-- .sh
-- .ps1
-- .r
-- .jl
-- .hx
-- .pp
-- .ahk
-- .ex
-- .hack
-- .fs
-- .elm
-
-[_Contact with the repo owner or create an issue for more extensions_](mailto:me@sayad.dev)
-
-<br />
-
 ## Table of Contents
 
 - [Contributing](#contributing)
@@ -71,27 +21,11 @@ Contributions are highly encouraged! If you have any useful utility functions or
 
 1. Fork the repository.
 
-2. Create a new branch to make your modifications:
+2. Go to the relevant language directory under the `/snippets` directory. Create a new file and write your code. [Learn more](/CONTRIBUTING.md)
 
-   ```sh
-   git checkout -b new-feature
-   ```
+3. Commit and push your changes.
 
-3. Go to the relevant language directory under the `src` directory. Create a new file and write your code. [Learn more](/CONTRIBUTING.md)
-
-4. Commit your changes:
-
-   ```sh
-   git commit -am 'Add new utility function'
-   ```
-
-5. Push the branch to your forked repository:
-
-   ```sh
-   git push origin new-feature
-   ```
-
-6. Open a pull request on the original repository.
+4. Open a pull request on the original repository.
 
 Please ensure that your code follows the existing style and conventions within the repository. Additionally, provide clear and concise documentation within your code and update the README.md if necessary.
 

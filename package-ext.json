@@ -7,20 +7,9 @@
   "engines": {
     "vscode": "^1.50.0"
   },
-  "categories": [
-    "Snippets"
-  ],
+  "categories": ["Snippets"],
   "contributes": {
-    "snippets": [
-      {
-        "language": "javascript",
-        "path": "./snippets/javascript.code-snippets"
-      },
-      {
-        "language": "typescript",
-        "path": "./snippets/typescript.code-snippets"
-      }
-    ]
+    "snippets": []
   },
   "author": "https://github.com/NazmusSayad",
   "repository": {

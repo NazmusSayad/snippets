@@ -1,4 +1,4 @@
-//# Sort a list of node
+// Sort a list of node
 
 const sortElements = (selectors) => {
   let i, switching, b, shouldSwitch

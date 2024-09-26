@@ -1,4 +1,4 @@
-//# Check if an element is visible
+// Check if an element is visible
 
 const isVisible1 = (element) => {
   const position = element.getBoundingClientRect()
