@@ -1,15 +1,15 @@
 {
   "name": "util-snippets",
+  "version": "0.0.0",
   "displayName": "Utility Code Snippets",
   "publisher": "NazmusSayad",
-  "description": "",
-  "version": "0.0.3",
-  "engines": {
-    "vscode": "^1.50.0"
-  },
+  "description": "A collection of utility code snippets for Visual Studio Code.",
   "categories": ["Snippets"],
   "contributes": {
     "snippets": []
+  },
+  "engines": {
+    "vscode": "^1.50.0"
   },
   "author": "https://github.com/NazmusSayad",
   "repository": {

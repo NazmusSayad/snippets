@@ -5,7 +5,7 @@ export default {
   rootPath,
   snippetsPath: path.join(rootPath, 'snippets'),
   markdownPath: path.join(rootPath, 'markdown'),
-  extensionPath: path.join(rootPath, 'extension'),
+  extensionPath: path.join(rootPath, 'dist-extension'),
+  extensionSnippetsPath: path.join(rootPath, 'dist-extension', 'snippets'),
   extensionPackagePath: path.join(rootPath, 'package-ext.json'),
-  extensionSnippetsPath: path.join(rootPath, 'extension', 'snippets'),
 } as const
