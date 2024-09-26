@@ -1,12 +1,10 @@
 {
-  "type": "module",
   "scripts": {
-    "build": "node ./src/index.js",
-    "build:ext": "node ./src/extension.js",
-    "dev": "node --watch ./src/index.js",
-    "dev:ext": "node --watch ./src/extension.js"
+    "dev": "run ./src/index.ts",
+    "tsc": "tsc --watch --noEmit"
   },
   "devDependencies": {
-    "vsce": "^2.15.0"
+    "@types/node": "^22.7.2",
+    "typescript": "^5.6.2"
   }
 }
