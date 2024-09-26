@@ -9,6 +9,10 @@ import generateExt from './generateExt'
 cleanDir(config.markdownPath)
 cleanDir(config.extensionSnippetsPath)
 
+const extensionPackage = JSON.parse(
+  fs.readFileSync(config.extensionPackagePath, 'utf-8')
+)
+
 const snippets = readSnippets()
 for (const lang in snippets) {
   const markdownContent = generateMd(lang, snippets[lang])
@@ -18,8 +22,26 @@ for (const lang in snippets) {
   )
 
   const extensionContent = generateExt(lang, snippets[lang])
-  fs.writeFileSync(
-    path.join(config.extensionSnippetsPath, lang + '.code-snippets'),
-    extensionContent
+  const extensionPath = path.join(
+    config.extensionSnippetsPath,
+    lang + '.code-snippets'
   )
+
+  fs.writeFileSync(extensionPath, extensionContent)
+  extensionPackage.contributes.snippets.push({
+    language:
+      lang === 'typescript'
+        ? 'typescript,typescriptreact'
+        : lang === 'javascript'
+        ? 'javascript,javascriptreact'
+        : lang,
+    path:
+      './' +
+      path.relative(config.extensionPath, extensionPath).replace(/\\/g, '/'),
+  })
 }
+
+fs.writeFileSync(
+  path.join(config.extensionPath, 'package.json'),
+  JSON.stringify(extensionPackage, null, 2)
+)
