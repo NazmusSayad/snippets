@@ -1,6 +1,6 @@
 // Sort a list of node
 
-const sortElements = (selectors) => {
+function sortElements(selectors) {
   let i, switching, b, shouldSwitch
   switching = true
   while (switching) {

@@ -1,6 +1,6 @@
 // Wait for sometime...
 
-const wait = (duration) => {
+function wait(duration) {
   return new Promise((resolve) => {
     setTimeout(resolve, duration)
   })

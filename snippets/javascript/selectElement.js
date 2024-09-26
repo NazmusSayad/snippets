@@ -1,6 +1,6 @@
 // Physically select a text/image of a element
 
-const selectElement = (element) => {
+function selectElement(element) {
   if (document.body.createTextRange) {
     const range = document.body.createTextRange()
     range.moveToElementText(element)

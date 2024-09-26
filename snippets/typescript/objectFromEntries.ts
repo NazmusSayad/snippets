@@ -1,8 +1,8 @@
 // Object from entries
 
-import type { Entries, EntriesToObject } from './EntriesToObject'
+import './EntriesToObject'
 
-export function objectFromEntries<E extends Entries>(a: E) {
+function objectFromEntries<E extends Entries>(a: E) {
   return Object.fromEntries(a) as EntriesToObject<E>
 }
 

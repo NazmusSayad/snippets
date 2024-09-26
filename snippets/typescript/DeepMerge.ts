@@ -1,4 +1,4 @@
-export type DeepMerge<T, U> = T extends object
+type DeepMerge<T, U> = T extends object
   ? U extends object
     ? {
         [K in keyof (T & U)]: K extends keyof U
