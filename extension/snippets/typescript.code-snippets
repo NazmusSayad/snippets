@@ -1,0 +1,57 @@
+{
+  "DeepMerge": {
+    "prefix": "DeepMerge",
+    "scope": "typescript,typescriptreact",
+    "body": "export type DeepMerge<T, U> = T extends object\n  ? U extends object\n    ? {\n        [K in keyof (T & U)]: K extends keyof U\n          ? K extends keyof T\n            ? DeepMerge<T[K], U[K]>\n            : U[K]\n          : K extends keyof T\n          ? T[K]\n          : never\n      }\n    : T\n  : U"
+  },
+  "DeepPartial": {
+    "prefix": "DeepPartial",
+    "scope": "typescript,typescriptreact",
+    "body": "export type DeepPartial<T> = {\n  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P]\n}"
+  },
+  "EntriesToObject": {
+    "prefix": "EntriesToObject",
+    "scope": "typescript,typescriptreact",
+    "body": "// Create object from Entries type\n\nexport type Entries =\n  | [string, any][]\n  | readonly [string, any][]\n  | (readonly [string, any])[]\n  | readonly (readonly [string, any])[]\n\nexport type EntriesToObject<T extends Entries> = {\n  [K in T[number] as K[0]]: K[1]\n}"
+  },
+  "MakeOptional": {
+    "prefix": "MakeOptional",
+    "scope": "typescript,typescriptreact",
+    "body": "type HasUndefined<T> = (T extends undefined ? true : false) extends false\n  ? false\n  : true\n\ntype Prettify<T extends object> = {\n  [Key in keyof T]: T[Key]\n} & {}\n  \nexport type MakeOptional<TObject> = Prettify<\n  {\n    [K in keyof TObject as HasUndefined<TObject[K]> extends true\n      ? never\n      : K]: TObject[K]\n  } & {\n    [K in keyof TObject as HasUndefined<TObject[K]> extends false\n      ? never\n      : K]?: TObject[K]\n  }\n>"
+  },
+  "MergeObject": {
+    "prefix": "MergeObject",
+    "scope": "typescript,typescriptreact",
+    "body": "export type Merge<T extends object, U extends object> = {\n  [Key in keyof T | keyof U]: Key extends keyof U\n    ? U[Key]\n    : Key extends keyof T\n    ? T[Key]\n    : never\n}"
+  },
+  "Modify": {
+    "prefix": "Modify",
+    "scope": "typescript,typescriptreact",
+    "body": "export type Modify<\n  Type extends object,\n  PartialType extends Partial<Type>\n> = Omit<Type, keyof PartialType> & PartialType;"
+  },
+  "objectFromEntries": {
+    "prefix": "objectFromEntries",
+    "scope": "typescript,typescriptreact",
+    "body": "// Object from entries\n\nimport type { Entries, EntriesToObject } from './EntriesToObject'\n\nexport function objectFromEntries<E extends Entries>(a: E) {\n  return Object.fromEntries(a) as EntriesToObject<E>\n}"
+  },
+  "OmitByValue": {
+    "prefix": "OmitByValue",
+    "scope": "typescript,typescriptreact",
+    "body": "export type OmitByValue<T, ValueType> = Pick<\n  T,\n  {\n    [K in keyof T]: T[K] extends ValueType ? never : K\n  }[keyof T]\n>"
+  },
+  "Prettify": {
+    "prefix": "Prettify",
+    "scope": "typescript,typescriptreact",
+    "body": "export type Prettify<T extends object> = {\n  [Key in keyof T]: T[Key];\n} & {};"
+  },
+  "RequireAtLeastOne": {
+    "prefix": "RequireAtLeastOne",
+    "scope": "typescript,typescriptreact",
+    "body": "export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Omit<\n  T,\n  Keys\n> &\n  {\n    [K in Keys]-?: Required<Pick<T, K>> & Partial<Omit<T, K>>\n  }[Keys]"
+  },
+  "RequiredAndNotNull": {
+    "prefix": "RequiredAndNotNull",
+    "scope": "typescript,typescriptreact",
+    "body": "import { Prettify } from \"./Prettify\";\n\nexport type RequiredAndNotNull<T extends object, R = false> = Prettify<\n  Required<{\n    [key in keyof T]: R extends false\n      ? Exclude<T[key], null | undefined>\n      : T[key] extends object\n      ? RequiredAndNotNull<T[key], true>\n      : Exclude<T[key], null | undefined>;\n  }>\n>;"
+  }
+}

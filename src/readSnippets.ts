@@ -23,7 +23,7 @@ function parseLanguageFolder(folderPath: string) {
 function parseFile(filePath: string): ParsedFileOutput {
   const [mainContent, demoContent] = fs
     .readFileSync(filePath, 'utf8')
-    .split('//# DEMO')
+    .split('//#DEMO')
 
   const [importPaths, simplifiedContent] = getImportPaths(mainContent)
   const getFiles = importPaths.map((importPath) => {
