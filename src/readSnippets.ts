@@ -21,17 +21,21 @@ function parseLanguageFolder(folderPath: string) {
 }
 
 function parseFile(filePath: string): ParsedFileOutput {
-  const [mainContent] = fs.readFileSync(filePath, 'utf8').split('//# DEMO')
+  const [mainContent, demoContent] = fs
+    .readFileSync(filePath, 'utf8')
+    .split('//# DEMO')
+
   const [importPaths, simplifiedContent] = getImportPaths(mainContent)
   const getFiles = importPaths.map((importPath) => {
     const fileName = path.join(path.dirname(filePath), importPath + '.ts')
-    return parseFile(fileName)
+    return parseFile(fileName).content
   })
 
   return {
-    filePath: filePath,
+    filePath,
     fileName: path.basename(filePath),
-    content: [getFiles.join('\n'), simplifiedContent].join('\n\n').trim(),
+    content: [...getFiles, simplifiedContent].join('\n\n').trim(),
+    demoContent: demoContent?.trim(),
   }
 }
 

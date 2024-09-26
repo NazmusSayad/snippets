@@ -1,18 +1,23 @@
 import path from 'path'
-import { ParsedFileOutput } from './types.t'
 import config from './config'
+import { ParsedFileOutput } from './types.t'
 
 function generateMd(
   lang: string,
-  { fileName, filePath, content }: ParsedFileOutput
+  { fileName, filePath, content, demoContent }: ParsedFileOutput
 ) {
-  const header = `### ${fileName}`
+  const header = `### ${path.parse(fileName).name}`
   const body = ['```' + lang, content, '```'].join('\n')
+
+  const demo =
+    demoContent &&
+    ['#### Demo:', ['```' + lang, demoContent, '```'].join('\n')].join('\n\n')
+
   const source = `Source: [${fileName}](/${path
     .relative(config.rootPath, filePath)
     .replaceAll('\\', '/')})`
 
-  return [header, body, source].join('\n\n')
+  return [header, body, demo, source].filter(Boolean).join('\n\n')
 }
 
 export default function (lang: string, contents: ParsedFileOutput[]) {
